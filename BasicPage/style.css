@@ -1,0 +1,51 @@
+* {
+    font-family: Tahoma, serif
+}
+
+body {
+    margin: 5em 10em 5em 10em;
+    background: url(https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb) repeat-y;
+    background-size: 100px;
+}
+
+p {
+    text-align: justify
+}
+p + p {
+    color: gray;
+}
+
+li {
+    list-style-type: square
+}
+
+#price {
+    font-weight: 700;
+    color: #ff545e
+}
+
+.first-section {
+    font-style: italic;
+}
+
+#image {
+    border: 2px solid #ff57c8;
+}
+#image:hover, #image:focus {
+    border: 5px dashed cornflowerblue;
+}
+
+h1 + h2 {
+ letter-spacing: 5px;
+}
+
+h1 { color: blue }
+h1 { color: green }
+
+#book-title {
+    color:yellow !important;
+}
+
+td[colspan = '2'] > p {
+    font-size: small;
+}
