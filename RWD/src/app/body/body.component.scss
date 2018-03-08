@@ -1,0 +1,43 @@
+@import "../../constants";
+
+:host {
+  .body-wrapper {
+    margin: 100px 10px 10px;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  display: block;
+  min-height: calc(100vh - 190px);
+  .container {
+    background: $medium-background-color;
+    padding: 60px 15px 15px;
+    border-radius: 3px;
+    @include shadow;
+  }
+  .label {
+    position: absolute;
+    border-radius: 0 3px 0 0;
+    top: 0;
+    right: 0;
+    margin: 15px;
+    padding: 10px;
+    min-width: 160px;
+    text-align: center;
+    @include weak-shadow
+  }
+  .wrapper {
+    position: relative;;
+  }
+  .lorem-label {
+    background: aqua;
+  }
+  .ipsum-label {
+    background: coral;
+  }
+  .dolor-label {
+    background: hotpink;
+  }
+}

@@ -4,8 +4,40 @@ html, body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background: #d8d8d8;
+}
+body {
+  min-height: 100vh;
+  position: absolute;
 }
 * {
   box-sizing: border-box;
+}
+
+$grid-columns:12;
+
+@function getWidth($column) {
+  @return ($column/$grid-columns) * 100%;
+}
+@mixin columns($type, $i) {
+  .col-#{$type}-#{$i} {
+    flex-basis: getWidth($i);
+    max-width: getWidth($i);
+    padding: 15px;
+  }
+}
+
+@for $i from 1 through $grid-columns {
+  @media screen {
+    @include columns("s", $i)
+  }
+}
+@for $i from 1 through $grid-columns {
+  @media screen and (min-width: 600px) {
+    @include columns("m", $i)
+  }
+}
+@for $i from 1 through $grid-columns {
+  @media screen and (min-width: 1200px) {
+    @include columns("l", $i)
+  }
 }
