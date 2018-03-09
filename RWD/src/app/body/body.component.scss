@@ -15,9 +15,11 @@
     background: $medium-background-color;
     padding: 60px 15px 15px;
     border-radius: 3px;
+    text-align: justify;
     @include shadow;
   }
   .label {
+    font-size: 1.5rem;
     position: absolute;
     border-radius: 0 3px 0 0;
     top: 0;
