@@ -15,6 +15,9 @@
       margin: 0 20px;
       align-self: center;
       font-size: 2rem;
+      @media screen and (max-width: 600px){
+        display: none;
+      }
     }
   }
   nav {
@@ -28,6 +31,29 @@
   .items {
     display: flex;
     flex-flow: row-reverse;
+    @media screen and (max-width: 1200px) {
+      .menu-item {
+        display: none;
+      }
+      background-color: $main-color;
+      border-radius: 5px;
+      position: relative;
+      &:hover {
+        cursor: pointer;
+      }
+      width: 48px;
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        margin: 6px;
+        top: 0.25em;
+        width: 36px;
+        height: 4px;
+        background: $medium-background-color;
+        box-shadow: 0 12px 0 0 $medium-background-color, 0 24px 0 0 $medium-background-color;
+      }
+    }
     .menu-item {
       margin: 10px;
       align-self: center;
