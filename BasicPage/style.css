@@ -8,6 +8,9 @@ body {
     background-size: 100px;
 }
 
+#publishing-house {
+    text-decoration: underline;
+}
 p {
     text-align: justify
 }
