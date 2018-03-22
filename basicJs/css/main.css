@@ -1,6 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    background: #e9ecef;
 }
 
 .invalid-feedback:after {
@@ -32,4 +33,19 @@ html, body {
 .remove-power:hover {
     color: #ff3644;
     cursor: pointer;
+}
+
+.jumbotron {
+    margin-bottom: 0;
+}
+
+#errors {
+    display: none;
+    border: #ff3644;
+    border-radius: 3px;
+}
+
+[contenteditable]:focus {
+    outline: 0 solid transparent;
+    border-bottom: 1px dodgerblue solid;
 }
