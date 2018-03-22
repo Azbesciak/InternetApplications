@@ -2,3 +2,12 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+.invalid-feedback:after {
+    content: "*";
+    color: #ff3644;
+    position: absolute;
+    top: 40px;
+    font-size: 16px;
+    right: 18px;
+}

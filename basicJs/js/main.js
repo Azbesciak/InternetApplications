@@ -26,7 +26,7 @@ function validatePassword() {
     const input = document.getElementById(PAS_INPUT);
     let error;
     if (!input.value)
-        error = "Password is required";
+        error = "You must repeat your password";
     else if (!pasReg.test(input.value))
         error = "Password must have at least one digit and 8 sings";
     validateInput(input, error);
