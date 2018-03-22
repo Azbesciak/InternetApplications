@@ -4,7 +4,6 @@ function getTable() {
     return document.querySelector(`#${TABLE_ID} tbody`);
 }
 
-
 function updateRowActions(row, rowNum) {
     row.cells[0].outerHTML = `<th scope='row'>${rowNum}</th>`;
     row.cells[3].innerHTML = `<span class="remove-power" onclick="removePower(${rowNum-1})">&#8211</span>`
@@ -27,10 +26,6 @@ function removePower(index) {
     const table = getTable();
     table.deleteRow(index);
     for (let i = 0; i < table.rows.length; i++) {
-        try {
-            updateRowActions(table.rows[i], i+1);
-        } catch (e) {
-            console.error(e, i)
-        }
+        updateRowActions(table.rows[i], i+1);
     }
 }
