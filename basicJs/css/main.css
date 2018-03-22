@@ -11,3 +11,25 @@ html, body {
     font-size: 16px;
     right: 18px;
 }
+.table-container {
+    margin-top: 20px;
+}
+
+#add-power {
+
+}
+#add-power:hover {
+    cursor: pointer;
+    color: dodgerblue;
+}
+
+.remove-power {
+    font-size: 20px;
+    line-height: 14px;
+    font-weight: bold;
+    transform: rotateX(45deg);
+}
+.remove-power:hover {
+    color: #ff3644;
+    cursor: pointer;
+}
