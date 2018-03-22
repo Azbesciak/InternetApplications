@@ -13,18 +13,21 @@ function updateRowActions(row, rowNum) {
 }
 
 function createEditableCell() {
-    return `<div contenteditable="true"></div>`
+    return `<div contenteditable="true" class="editable-cell"></div>`
 }
 
 function addPower() {
     const table = getTable();
     const row = table.insertRow(-1);
     row.insertCell(0);
-    row.insertCell(1).innerHTML = createEditableCell();
+    const powerNameCell = row.insertCell(1);
+    powerNameCell.innerHTML = createEditableCell();
     row.insertCell(2).innerHTML = createEditableCell();
     row.insertCell(3);
     const rowNum = table.rows.length;
-    updateRowActions(row, rowNum)
+    updateRowActions(row, rowNum);
+    powerNameCell.getElementsByClassName("editable-cell")[0].focus();
+
 }
 
 function removePower(index) {
