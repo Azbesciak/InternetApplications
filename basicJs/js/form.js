@@ -17,14 +17,14 @@ function updateErrors() {
     if (showErrors) {
         const errorStr = Object.keys(validityMap)
             .map(k => {
-                const key = k.replace(/-/g, " ").replace(/(^| )(\w)/g, s => s.toUpperCase())
+                const key = k.replace(/-/g, " ").replace(/(^| )(\w)/g, s => s.toUpperCase());
                 const value = validityMap[k];
                 if (value) {
                     return `${key}: ${value}`
                 }
             })
             .filter(x => x)
-            .reduce((add, acc) => `${acc}\n${add}`);
+            .reduce((add, acc) => `${acc}\n${add}`, "");
         if (errorStr.trim().length === 0) {
             errorsDiv.style.display = "none";
             showErrors = false;
@@ -127,4 +127,7 @@ function onSubmit(event) {
     event.preventDefault();
     event.stopPropagation();
     forms.classList.add('was-validated');
+    if (!showErrors) {
+        alert("Sent!")
+    }
 }
