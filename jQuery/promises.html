@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promises hello</title>
+</head>
+<body>
+<div>
+    <label for="url-input">Enter your url</label>
+    <input id="url-input">
+    <div id="result"></div>
+</div>
+<script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        let currentTimeout;
+        let resultDiv = $("#result");
+
+        function onError(e) {
+            console.error(e);
+            resultDiv.html(`error: ${e}`);
+        }
+        $("#url-input").keyup(() => {
+            clearTimeout(currentTimeout);
+
+            currentTimeout = setTimeout(() => {
+                let url = $(this).val();
+                resultDiv.html("await for reslt...");
+
+                try {
+                    fetch(url, {
+                        mode: 'no-cors',
+                        method: 'GET',
+                        headers: new Headers({
+                            'Content-Type': 'application/json'
+                        })
+                    })
+                        .then(response => {
+                            resultDiv.html(response.json());
+                            console.log(response)
+                        })
+                        .catch(e => onError(e))
+                } catch (e) {
+                    onError(e)
+                }
+            }, 500);
+        })
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+
+<table>
+    <tr><td>Wlazł</td></tr>
+    <tr><td>kotek</td></tr>
+    <tr><td>na</td></tr>
+    <!--<tr><td><script>alert('!DANGER!')</script></td></tr>-->
+</table>
+<button>some button</button>
+<script>
+    function edit() {
+        const row = $(this);
+        row.text('<input id="edit" value="' + row.text() + '">');
+        $('#edit').blur(()=> {
+            row.text($(this).val());
+            row.one('click', edit);
+        }).focus();
+        $('button').trigger('asdf');
+    }
+    $(function () {
+        $('td').one('click', edit);
+        $('button').bind('asdf', function () { alert('Asdf!'); });
+        $('*').unbind();
+    });
+</script>

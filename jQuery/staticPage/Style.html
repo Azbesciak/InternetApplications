@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .zielona {
+            background: Pink;
+        }
+    </style>
+
+    <script type="text/javascript"
+            src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Pierwszy</td>
+    </tr>
+    <tr>
+        <td>Drugi</td>
+    </tr>
+    <tr>
+        <td>Trzeci</td>
+    </tr>
+    <tr>
+        <td>Czwarty</td>
+    </tr>
+    <tr>
+        <td>Piąty</td>
+    </tr>
+    <tr>
+        <td>Szósty</td>
+    </tr>
+</table>
+<div>
+    <button>Zielony</button>
+    <button>mosteczek</button>
+    <span id="classic">Zmiana
+przez dodawanie/usuwanie klasy.</span></div>
+<div>
+    <button>ugina się.</button>
+    <span id="toggle">Zmiana przez przełączanie klas.</span>
+</div>
+<ol>
+    <li>pierwszy</li>
+    <li>drugi</li>
+    <li>trzeci</li>
+    <li>czwarty</li>
+    <li>piaty</li>
+    <li>szósty</li>
+</ol>
+<ol class="a">
+    <li class="b">pierwszy</li>
+    <li class="b">drugi</li>
+    <li>trzeci</li>
+    <li class="b"><a href="#">czwarty</a></li>
+    <li>piaty</li>
+    <li>szósty</li>
+</ol>
+<ol>
+    <li>pierwszy</li>
+    <li>drugi</li>
+    <li>trzeci</li>
+    <li>czwarty</li>
+    <li>piaty</li>
+    <li>szósty</li>
+</ol>
+
+<script>
+    $(function () {
+        $('button:contains(\'Zielony\')').click(function () {
+            $('#classic').addClass('zielona');
+        });
+        $('button:contains(\'mosteczek\')').click(function () {
+            $('#classic').removeClass('zielona');
+        });
+        $('button:contains(\'ugina\')').click(function () {
+            $('#toggle').toggleClass('zielona');
+        });
+        $('tr:even').addClass('zielona');
+
+        let x = $('ol.a li .b:not(.b a[href])');
+        console.log(x)
+    });
+</script>
+</body>
+
+</html>
