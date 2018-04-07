@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promises hello</title>
+</head>
+<body>
+<div>
+    <label for="url-input">Enter your url</label>
+    <input id="url-input">
+    <div id="result"></div>
+</div>
+<script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        let currentTimeout;
+        const resultDiv = $("#result");
+        const input = $("#url-input");
+        input.keyup(() => {
+            clearTimeout(currentTimeout);
+
+            currentTimeout = setTimeout(() => {
+                let url = input.val();
+                resultDiv.html("await for reslt...");
+                let wasSend = false;
+                const send = () => makeRequest('GET', url)
+                    .then(data => {
+                        resultDiv.html(data);
+                    })
+                    .catch(e =>  {
+                        console.error(e);
+                        if (!wasSend && !e.statusText) {
+                            wasSend = true;
+                            send()
+                        } else {
+                            resultDiv.html(`Augh, there was an error!: ${e.statusText || e}`);
+                        }
+                    });
+                send();
+            }, 500);
+        })
+
+
+    });
+    function makeRequest (method, url) {
+        return new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open(method, url);
+            xhr.onload = () => {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    resolve(xhr.response);
+                } else {
+                    reject({
+                        status: xhr.status,
+                        statusText: xhr.statusText
+                    });
+                }
+            };
+            xhr.onerror = () => onError(xhr, reject);
+            xhr.send();
+        });
+    }
+
+    function onError(xhr, reject) {
+        reject({
+            status: xhr.status,
+            statusText: xhr.statusText
+        });
+    }
+</script>
+</body>
+</html>

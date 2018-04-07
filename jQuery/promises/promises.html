@@ -15,17 +15,18 @@
 <script>
     $(function () {
         let currentTimeout;
-        let resultDiv = $("#result");
+        const resultDiv = $("#result");
+        const input = $("#url-input");
 
         function onError(e) {
             console.error(e);
             resultDiv.html(`error: ${e}`);
         }
-        $("#url-input").keyup(() => {
+        input.keyup(() => {
             clearTimeout(currentTimeout);
 
             currentTimeout = setTimeout(() => {
-                let url = $(this).val();
+                let url = input.val();
                 resultDiv.html("await for reslt...");
 
                 try {
