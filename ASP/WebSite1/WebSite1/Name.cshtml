@@ -1,0 +1,23 @@
+﻿@{
+    Page.Name = Request["Name"] != "" ? Request["Name"] + Request.HttpMethod : "Robert Paulson";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <ul>
+
+        @for(var i = 0; i < 10; i++)
+        {
+        <p>
+            His name is
+            @Page.Name
+        </p>}
+
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿@{
+    Page.Name = Request["Name"] != "" ? Request["Name"] + Request.HttpMethod : "Robert Paulson";
+    if (Session["rules"] == null)
+    {
+        Session["rules"] = new List<string>(0);
+    }
+    if (!string.IsNullOrEmpty(Request["rule"]))
+    {
+        ((List<string>)Session["rules"]).Add(Request["rule"]);
+    }
+    if (Request.HttpMethod == "POST")
+    {
+        Response.Redirect("Rules.cshtml");
+    }
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <form action="Rules.cshtml" method="post">
+        <input id="rule" name="rule" />
+        <button type="submit">OK</button>
+    </form>
+<ul>
+
+    @foreach (var rule in (List<string>) Session["rules"])
+    {
+        <li>
+            @rule
+        </li>
+    }
+
+</ul>
+
+</body>
+</html>
