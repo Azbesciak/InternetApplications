@@ -80,7 +80,7 @@ przez dodawanie/usuwanie klasy.</span></div>
         });
         $('tr:even').addClass('zielona');
 
-        let x = $('ol.a li .b:not(.b a[href])');
+        let x = $('ol.a li.b:not(.b:has(a[href]))');
         console.log(x)
     });
 </script>
